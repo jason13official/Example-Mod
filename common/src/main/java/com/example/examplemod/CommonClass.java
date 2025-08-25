@@ -1,5 +1,8 @@
 package com.example.examplemod;
 
+import com.example.examplemod.core.registry.ModBlocks;
+import com.example.examplemod.core.registry.ModItems;
+import com.example.examplemod.core.registry.ModTabs;
 import com.example.examplemod.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
@@ -23,9 +26,15 @@ public class CommonClass {
         // your own abstraction layer. You can learn more about this in our provided services class. In this example
         // we have an interface in the common code and use a loader specific implementation to delegate our call to
         // the platform specific approach.
-        if (Services.PLATFORM.isModLoaded("examplemod")) {
+        if (Services.PLATFORM.isModLoaded(Constants.MOD_ID)) {
 
-            Constants.LOG.info("Hello to examplemod");
+            Constants.LOG.info("Hello to {}", Constants.MOD_ID);
         }
+
+        // Our RegistrationProvider instances must be loaded during class initialization.
+        // Here, we are loading the classes via a `public static void` method.
+        ModBlocks.init();
+        ModItems.init();
+        ModTabs.init();
     }
 }
