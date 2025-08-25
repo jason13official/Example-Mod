@@ -1,8 +1,5 @@
 package com.example.examplemod;
 
-import com.example.examplemod.core.registry.ModBlocks;
-import com.example.examplemod.core.registry.ModItems;
-import com.example.examplemod.core.registry.ModTabs;
 import com.example.examplemod.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
@@ -30,11 +27,5 @@ public class CommonClass {
 
             Constants.LOG.info("Hello to {}", Constants.MOD_ID);
         }
-
-        // The classes holding our RegistrationProvider and RegistryObject instances must be loaded during mod initialization.
-        // Here, we are loading the classes via a `public static void` method.
-        ModBlocks.init();
-        ModItems.init();
-        ModTabs.init();
     }
 }

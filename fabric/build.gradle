@@ -10,6 +10,8 @@ dependencies {
     }
     modImplementation "net.fabricmc:fabric-loader:${fabric_loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_version}"
+
+    modImplementation group: 'net.darkhax.bookshelf', name: 'bookshelf-fabric-1.21.1', version: '21.1.66'
 }
 
 loom {

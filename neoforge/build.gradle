@@ -36,4 +36,8 @@ neoForge {
     }
 }
 
+dependencies {
+    implementation group: 'net.darkhax.bookshelf', name: 'bookshelf-neoforge-1.21.1', version: '21.1.66'
+}
+
 sourceSets.main.resources { srcDir 'src/generated/resources' }
