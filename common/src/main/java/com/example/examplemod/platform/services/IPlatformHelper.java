@@ -1,5 +1,10 @@
 package com.example.examplemod.platform.services;
 
+import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+
 public interface IPlatformHelper {
 
     /**
@@ -33,4 +38,10 @@ public interface IPlatformHelper {
 
         return isDevelopmentEnvironment() ? "development" : "production";
     }
+
+    <T extends Block> T constructTorch(SimpleParticleType particle, BlockBehaviour.Properties properties);
+
+    <T extends Block> T constructWallTorch(SimpleParticleType particle, BlockBehaviour.Properties properties);
+
+    CreativeModeTab.Builder constructTabBuilder();
 }
