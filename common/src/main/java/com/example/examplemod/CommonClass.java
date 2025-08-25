@@ -31,7 +31,7 @@ public class CommonClass {
             Constants.LOG.info("Hello to {}", Constants.MOD_ID);
         }
 
-        // Our RegistrationProvider instances must be loaded during class initialization.
+        // The classes holding our RegistrationProvider and RegistryObject instances must be loaded during mod initialization.
         // Here, we are loading the classes via a `public static void` method.
         ModBlocks.init();
         ModItems.init();
