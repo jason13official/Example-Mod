@@ -15,8 +15,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.material.PushReaction;
 
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -35,11 +36,15 @@ public class ModContent implements IContentProvider {
     @Override
     public void registerBlocks(Register<Block> registry) {
 
-        Block torch = Services.PLATFORM.constructTorch(ParticleTypes.FLAME, BlockBehaviour.Properties.ofFullCopy(Blocks.TORCH));
+        BlockBehaviour.Properties torchProperties = BlockBehaviour.Properties.of().noCollission().instabreak().lightLevel((p_50886_) -> 14).sound(SoundType.WOOD).pushReaction(PushReaction.DESTROY);
+
+        Block torch = Services.PLATFORM.constructTorch(ParticleTypes.FLAME, torchProperties);
         registry.add(TORCH_RL, torch);
         allTorchesOrdered.put(TORCH_RL, torch);
 
-        Block wallTorch = Services.PLATFORM.constructWallTorch(ParticleTypes.FLAME, BlockBehaviour.Properties.ofFullCopy(Blocks.WALL_TORCH).dropsLike(torch));
+        BlockBehaviour.Properties wallTorchProperties = BlockBehaviour.Properties.of().noCollission().instabreak().lightLevel((p_152607_) -> 14).sound(SoundType.WOOD).dropsLike(torch).pushReaction(PushReaction.DESTROY);
+
+        Block wallTorch = Services.PLATFORM.constructWallTorch(ParticleTypes.FLAME, wallTorchProperties);
         registry.add(WALL_TORCH_RL, wallTorch);
         allTorchesOrdered.put(WALL_TORCH_RL, wallTorch);
     }
